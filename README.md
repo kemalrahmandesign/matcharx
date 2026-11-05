@@ -13,6 +13,12 @@ npm run build      # production build
 npm run typecheck
 ```
 
+## Live site
+
+Every push to `main` deploys a static copy to GitHub Pages at https://kemalrahmandesign.github.io/matcharx/ (`.github/workflows/pages.yml`). Pages can't run server code, so that copy has no Stripe checkout; the Checkout button asks people to email instead. To sell online, host the full site somewhere that runs Next.js (for example Vercel) and set `STRIPE_SECRET_KEY`.
+
+To build the Pages copy locally: delete `src/app/api`, then run `GITHUB_PAGES=true npm run build` and serve `out/` under `/matcharx`.
+
 ## Pages
 
 | Route | What it is |

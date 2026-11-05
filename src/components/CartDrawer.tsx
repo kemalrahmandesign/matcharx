@@ -31,6 +31,11 @@ export function CartDrawer() {
   useEffect(() => setError(null), [lines]);
 
   async function checkout() {
+    // The GitHub Pages copy has no server to start a Stripe session.
+    if (process.env.NEXT_PUBLIC_STATIC_SITE) {
+      setError(`Online checkout isn't open yet. To order, email ${site.email}.`);
+      return;
+    }
     setPending(true);
     setError(null);
     try {

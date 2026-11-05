@@ -15,7 +15,8 @@ export function resolveImages(): Record<string, string> {
   for (const name of names) {
     for (const ext of EXTENSIONS) {
       if (fs.existsSync(path.join(dir, name + ext))) {
-        found[name] = `/images/${name}${ext}`;
+        // next/image doesn't add basePath to string sources on its own.
+        found[name] = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/${name}${ext}`;
         break;
       }
     }

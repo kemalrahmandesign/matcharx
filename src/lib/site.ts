@@ -14,6 +14,8 @@ export const site = {
   // Countries Stripe Checkout will ship to.
   shipTo: ["US", "CA"] as const, // TODO: confirm shipping regions
   freeShippingOver: 7500, // cents — TODO: confirm threshold
+  // While false, no prices show anywhere and every product reads "Coming soon".
+  salesOpen: false,
 };
 
 // The basic ratio, used on the home page, the prepare page and matcha pages.
@@ -26,4 +28,4 @@ export const ratio = [
 
 // Non-product images. Drop a file with this name (any of .jpg .jpeg .png
 // .webp .avif) into /public/images and it replaces the placeholder.
-export const pageImages = ["hero", "about", "prepare"] as const;
+export const pageImages = ["hero", "about"] as const;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { formatPrice, productTitle, type Product } from "@/lib/products";
+import { formatPrice, isAvailable, productTitle, type Product } from "@/lib/products";
 import { ImageSlot } from "./ImageSlot";
 
 export function ProductCard({ product, sizes = "(min-width: 900px) 33vw, 50vw" }: { product: Product; sizes?: string }) {
@@ -23,7 +23,7 @@ export function ProductCard({ product, sizes = "(min-width: 900px) 33vw, 50vw" }
         <span className="label muted tabular">No. {product.index}</span>
         <div className="card__row">
           <span className="card__name">{title}</span>
-          <span className="tabular">{product.comingSoon ? "Coming soon" : formatPrice(product.price)}</span>
+          <span className="tabular">{isAvailable(product) ? formatPrice(product.price) : "Coming soon"}</span>
         </div>
         <span className="muted small">{product.summary}</span>
       </div>

@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 
-import { getProduct, productTitle } from "@/lib/products";
+import { getProduct, isAvailable, productTitle } from "@/lib/products";
 import { site } from "@/lib/site";
 
 type IncomingLine = { slug?: unknown; size?: unknown; qty?: unknown };
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     const qty = Number(line.qty);
     const size = typeof line.size === "string" ? line.size : undefined;
     const sizeValid = product?.sizes ? !!size && product.sizes.includes(size) : size === undefined;
-    if (!product || product.comingSoon || !Number.isInteger(qty) || qty < 1 || qty > 20 || !sizeValid) {
+    if (!product || !isAvailable(product) || !Number.isInteger(qty) || qty < 1 || qty > 20 || !sizeValid) {
       return Response.json({ message: "Your cart has an item we couldn't find. Please refresh." }, { status: 400 });
     }
     lineItems.push({

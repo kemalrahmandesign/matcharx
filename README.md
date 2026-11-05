@@ -44,8 +44,7 @@ Drop files into `public/images` with these names. Any of `.jpg .jpeg .png .webp 
 | File | Used on |
 | --- | --- |
 | `hero` | Home hero (wide, 2:1 desktop / 4:5 mobile) |
-| `about` | About page header |
-| `prepare` | Prepare page, tools section |
+| `about` | About page photo |
 | `products/matcha-small` | Matcha — Small |
 | `products/matcha-large` | Matcha — Large |
 | `products/bamboo-scooper` | Bamboo Scooper |

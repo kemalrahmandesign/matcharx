@@ -6,7 +6,7 @@ import { AddToCart } from "@/components/AddToCart";
 import { ImageSlot } from "@/components/ImageSlot";
 import { ProductCard } from "@/components/ProductCard";
 import { averageRating, Reviews, Stars } from "@/components/Reviews";
-import { categories, formatPrice, getProduct, productTitle, products, rangeOf } from "@/lib/products";
+import { categories, formatPrice, getProduct, isAvailable, productTitle, products, rangeOf } from "@/lib/products";
 import { ratio, site } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -58,7 +58,7 @@ export default async function ProductPage({ params }: Params) {
           <div className="pdp__heading">
             <span className="label muted tabular">No. {product.index}</span>
             <h1 className="pdp__title">{title}</h1>
-            <span className="pdp__price tabular">{product.comingSoon ? "Coming soon" : formatPrice(product.price)}</span>
+            {isAvailable(product) && <span className="pdp__price tabular">{formatPrice(product.price)}</span>}
             {!!product.reviews?.length && (
               <a href="#reviews" className="label">
                 <Stars rating={averageRating(product.reviews)} /> {product.reviews.length}{" "}
@@ -114,7 +114,7 @@ export default async function ProductPage({ params }: Params) {
             <details className="disclosure">
               <summary className="label">Shipping &amp; returns</summary>
               <div className="disclosure__body small">
-                <p>Orders ship within two working days. Free shipping over {formatPrice(site.freeShippingOver)}.</p>
+                <p>Orders ship within two working days.</p>
                 <p>
                   Unopened items can be returned within 30 days.{" "}
                   <Link href="/help#returns" className="link-arrow">

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { formatPrice } from "@/lib/products";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Help" };
@@ -13,7 +12,7 @@ const sections = [
     items: [
       {
         q: "When will my order ship?",
-        a: `Orders placed before noon ship the same working day; everything else ships within two working days. Shipping is free on orders over ${formatPrice(site.freeShippingOver)}.`,
+        a: `Orders placed before noon ship the same working day; everything else ships within two working days.`,
       },
       {
         q: "Where do you ship?",

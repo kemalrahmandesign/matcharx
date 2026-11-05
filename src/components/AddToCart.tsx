@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { formatPrice, type Product } from "@/lib/products";
+import { formatPrice, isAvailable, type Product } from "@/lib/products";
 import { useCart } from "./Providers";
 
 export function AddToCart({ product }: { product: Product }) {
@@ -11,11 +11,11 @@ export function AddToCart({ product }: { product: Product }) {
   const [qty, setQty] = useState(1);
   const [prompt, setPrompt] = useState(false);
 
-  if (product.comingSoon) {
+  if (!isAvailable(product)) {
     return (
-      <button type="button" className="button button--grow" disabled>
+      <p className="button button--soon" role="status">
         Coming soon
-      </button>
+      </p>
     );
   }
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
-import { ImageSlot } from "@/components/ImageSlot";
+import { ProductCard } from "@/components/ProductCard";
+import { products } from "@/lib/products";
 import { ratio } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Prepare" };
@@ -94,17 +94,16 @@ export default function PreparePage() {
 
         <section className="grid chapter">
           <span className="label muted chapter__label">Tools</span>
-          <div className="chapter__title">
-            <ImageSlot name="prepare" alt="Bamboo whisk and scooper" label="Prepare image" ratio="portrait" sizes="(min-width: 900px) 33vw, 100vw" />
-          </div>
-          <div className="chapter__body closing">
-            <p className="prose">
-              You need three things: a bamboo scooper to measure, a bamboo whisk to foam, and a holder to keep the whisk
-              in shape.
-            </p>
-            <Link href="/shop?category=accessories" className="button">
-              Shop accessories
-            </Link>
+          <h2 className="title chapter__title">Three tools.</h2>
+          <p className="prose chapter__body">
+            A bamboo scooper to measure, a bamboo whisk to foam, and a holder to keep the whisk in shape.
+          </p>
+          <div className="chapter__wide product-grid product-grid--3 tools">
+            {products
+              .filter((p) => p.category === "accessories")
+              .map((p) => (
+                <ProductCard key={p.slug} product={p} sizes="(min-width: 900px) 25vw, 62vw" />
+              ))}
           </div>
         </section>
       </div>

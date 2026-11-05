@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
-import { getProduct } from "@/lib/products";
+import { getProduct, isAvailable } from "@/lib/products";
 
 export type CartLine = { slug: string; size?: string; qty: number };
 
@@ -32,7 +32,10 @@ function readStoredCart(): CartLine[] {
     const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "[]");
     if (!Array.isArray(parsed)) return [];
     // Drop anything the catalogue no longer sells.
-    return parsed.filter((l) => l && getProduct(l.slug) && Number.isInteger(l.qty) && l.qty > 0);
+    return parsed.filter((l) => {
+      const product = l && getProduct(l.slug);
+      return product && isAvailable(product) && Number.isInteger(l.qty) && l.qty > 0;
+    });
   } catch {
     return [];
   }

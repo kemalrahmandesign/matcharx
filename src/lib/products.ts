@@ -1,3 +1,5 @@
+import { site } from "./site";
+
 export type Category = "matcha" | "accessories" | "merch";
 
 // Real customer reviews only. Add them here (or connect a reviews service)
@@ -153,6 +155,11 @@ export const products: Product[] = [
     ],
   },
 ];
+
+// Whether a product can be bought (and its price shown) right now.
+export function isAvailable(p: Product) {
+  return site.salesOpen && !p.comingSoon;
+}
 
 export function getProduct(slug: string) {
   return products.find((p) => p.slug === slug);

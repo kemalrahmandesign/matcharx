@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { ImageSlot } from "@/components/ImageSlot";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = { title: "About" };
@@ -12,6 +13,8 @@ export default function AboutPage() {
       <header className="grid page-head">
         <h1 className="display page-head__title">About Bagum.</h1>
       </header>
+
+      <ImageSlot name="about" alt="Rows of tea bushes on a misty hillside" label="About image" ratio="hero" sizes="100vw" className="about__image" />
 
       <div className="grid about">
         <div className="prose about__body">

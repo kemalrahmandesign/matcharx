@@ -520,6 +520,11 @@ dd {
   .slot--hero {
     aspect-ratio: 4 / 5;
   }
+
+  /* The tin sits right of centre in the hero photo; keep it in the crop. */
+  .slot--hero .slot__img {
+    object-position: 64% 50%;
+  }
 }
 
 .slot__img {

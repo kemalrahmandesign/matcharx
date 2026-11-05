@@ -5,7 +5,7 @@ export const site = {
   fullName: "Bagum Matcha", // page titles and search results
   tagline: "Matcha, nothing else.",
   description:
-    "Single-origin matcha from China, presented with nothing added. White paper, brushed aluminum, and the green of the leaf.",
+    "Ceremonial grade matcha in a silver tin. Nothing added.",
   email: "hello@bagum.com", // TODO: real inbox
   currency: "USD",
   locale: "en-US",
@@ -13,15 +13,6 @@ export const site = {
   shipTo: ["US", "CA"] as const, // TODO: confirm shipping regions
   freeShippingOver: 7500, // cents — TODO: confirm threshold
 };
-
-// Headline facts shown on the home and about pages.
-// TODO: every value here is a placeholder until confirmed by the farm.
-export const origin = [
-  { label: "Origin", value: "China" },
-  { label: "Harvest", value: "First flush, spring" },
-  { label: "Grade", value: "Ceremonial" },
-  { label: "Ingredients", value: "100% green tea" },
-];
 
 // The basic ratio, used on the home page, the prepare page and matcha pages.
 export const ratio = [

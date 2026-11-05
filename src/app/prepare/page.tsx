@@ -102,8 +102,8 @@ export default function PreparePage() {
               You need three things: a bamboo scooper to measure, a bamboo whisk to foam, and a holder to keep the whisk
               in shape.
             </p>
-            <Link href="/shop?category=tools" className="button">
-              Shop tools
+            <Link href="/shop?category=accessories" className="button">
+              Shop accessories
             </Link>
           </div>
         </section>

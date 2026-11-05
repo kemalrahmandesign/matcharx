@@ -30,8 +30,8 @@ export default async function ProductPage({ params }: Params) {
   const category = categories.find((c) => c.id === product.category)!;
   const related =
     product.category === "matcha"
-      ? products.filter((p) => p.category === "tools")
-      : products.filter((p) => p.slug !== product.slug && p.category !== "goods").slice(0, 3);
+      ? products.filter((p) => p.category === "accessories")
+      : products.filter((p) => p.slug !== product.slug && p.category !== "merch").slice(0, 3);
 
   return (
     <div className="container">

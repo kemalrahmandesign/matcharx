@@ -1,4 +1,4 @@
-export type Category = "matcha" | "tools" | "goods";
+export type Category = "matcha" | "accessories" | "merch";
 
 export type Product = {
   slug: string;
@@ -18,8 +18,8 @@ export type Product = {
 
 export const categories: { id: Category; label: string }[] = [
   { id: "matcha", label: "Matcha" },
-  { id: "tools", label: "Tools" },
-  { id: "goods", label: "Goods" },
+  { id: "accessories", label: "Accessories" },
+  { id: "merch", label: "Merch" },
 ];
 
 // TODO: prices, weights and materials are placeholders until confirmed.
@@ -32,14 +32,13 @@ export const products: Product[] = [
     price: 3800,
     summary: "30 g · about 15 servings",
     description:
-      "Our single-origin matcha in the everyday size. Shade-grown leaf, first harvest, milled to a fine powder that whisks to a dense, even foam.",
+      "Ceremonial grade matcha in the everyday size. Milled to a fine powder that whisks to a dense, even foam.",
     image: "products/matcha-small",
     range: { group: "matcha", label: "Small · 30 g" },
     specs: [
       { label: "Weight", value: "30 g" },
       { label: "Servings", value: "About 15 at 2 g" },
-      { label: "Origin", value: "China" },
-      { label: "Harvest", value: "First flush, spring" },
+      { label: "Grade", value: "Ceremonial" },
       { label: "Ingredients", value: "100% green tea" },
     ],
   },
@@ -51,14 +50,13 @@ export const products: Product[] = [
     price: 9800,
     summary: "100 g · about 50 servings",
     description:
-      "The same matcha in a larger tin, for a daily bowl. Keep it sealed, cool and dark, and it will hold its colour and sweetness.",
+      "The same ceremonial grade matcha in a larger tin, for a daily bowl. Keep it sealed, cool and dark.",
     image: "products/matcha-large",
     range: { group: "matcha", label: "Large · 100 g" },
     specs: [
       { label: "Weight", value: "100 g" },
       { label: "Servings", value: "About 50 at 2 g" },
-      { label: "Origin", value: "China" },
-      { label: "Harvest", value: "First flush, spring" },
+      { label: "Grade", value: "Ceremonial" },
       { label: "Ingredients", value: "100% green tea" },
     ],
   },
@@ -66,7 +64,7 @@ export const products: Product[] = [
     slug: "bamboo-scooper",
     index: "03",
     name: "Bamboo Scooper",
-    category: "tools",
+    category: "accessories",
     price: 1400,
     summary: "Carved bamboo",
     description:
@@ -82,7 +80,7 @@ export const products: Product[] = [
     slug: "whisk",
     index: "04",
     name: "Bamboo Whisk",
-    category: "tools",
+    category: "accessories",
     price: 3400,
     summary: "Hand-split bamboo",
     description:
@@ -98,7 +96,7 @@ export const products: Product[] = [
     slug: "whisk-holder",
     index: "05",
     name: "Whisk Holder",
-    category: "tools",
+    category: "accessories",
     price: 2800,
     summary: "Glazed ceramic",
     description:
@@ -114,7 +112,7 @@ export const products: Product[] = [
     slug: "shirt",
     index: "06",
     name: "Shirt",
-    category: "goods",
+    category: "merch",
     price: 4800,
     summary: "Heavyweight cotton, white",
     description:
@@ -131,7 +129,7 @@ export const products: Product[] = [
     slug: "tote-bag",
     index: "07",
     name: "Tote Bag",
-    category: "goods",
+    category: "merch",
     price: 3200,
     summary: "Natural canvas",
     description:

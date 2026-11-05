@@ -426,8 +426,6 @@ dd {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   height: var(--header-h);
-  max-width: var(--max);
-  margin-inline: auto;
   padding-inline: var(--gutter);
 }
 
@@ -502,7 +500,8 @@ dd {
 }
 
 .slot--hero {
-  aspect-ratio: 16 / 8;
+  aspect-ratio: 16 / 9;
+  max-height: calc(100svh - var(--header-h));
 }
 
 .slot--wide {
@@ -552,66 +551,30 @@ dd {
 
 /* --- Home ---------------------------------------------------------------- */
 
-.hero {
-  padding-top: clamp(40px, 7vw, 112px);
-  padding-bottom: clamp(48px, 6vw, 96px);
+.shelf {
+  padding-top: clamp(48px, 6vw, 96px);
 }
 
-.hero__top {
-  row-gap: 28px;
-  align-items: end;
-  margin-bottom: clamp(32px, 5vw, 72px);
+.shelf__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
 }
 
-.hero__title {
-  grid-column: 1 / span 8;
+.shelf__more:hover {
+  color: var(--ink);
 }
 
-.hero__aside {
-  grid-column: 9 / -1;
-  display: grid;
-  gap: 24px;
-  justify-items: start;
-  max-width: 38ch;
+.shop-all {
+  display: flex;
+  justify-content: center;
+  padding-block: clamp(56px, 7vw, 112px);
 }
 
-@media (max-width: 900px) {
-  .hero__title,
-  .hero__aside {
-    grid-column: 1 / -1;
-  }
-}
-
-.facts {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--gap);
-  margin-top: 16px;
-}
-
-.facts div {
-  display: grid;
-  gap: 2px;
-  padding-top: 12px;
-  border-top: 1px solid var(--rule-silver);
-}
-
-.facts dt {
-  color: var(--ink-3);
-}
-
-.facts dd {
-  font-family: var(--font-mono);
-  font-size: 13px;
-}
-
-@media (max-width: 760px) {
-  .facts {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 20px;
-  }
-}
-
+/* The basic ratio, on the prepare page. */
 .ratio {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -656,28 +619,30 @@ dd {
   gap: clamp(40px, 5vw, 72px) var(--gap);
 }
 
-.product-grid--two {
+.product-grid--2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.product-grid--five {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-@media (max-width: 1100px) {
-  .product-grid--five {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 760px) {
-  .product-grid,
-  .product-grid--five {
+  .product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .product-grid--two {
-    grid-template-columns: 1fr;
+  /* Three across is too small on a phone, so that row scrolls sideways. */
+  .product-grid--3 {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 62%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .product-grid--3 > * {
+    scroll-snap-align: start;
   }
 }
 
@@ -1092,38 +1057,55 @@ dd {
   border-top: 1px solid var(--rule);
 }
 
-.footer__grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 32px var(--gap);
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px var(--gap);
+  flex-wrap: wrap;
 }
 
-.footer__note {
+.footer__links {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.signup {
+  display: grid;
+  gap: 14px;
+  width: min(520px, 100%);
+}
+
+.signup__row {
+  display: flex;
+  gap: 8px;
+}
+
+.signup__input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
   font-family: var(--font-mono);
   font-size: 13px;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule-silver);
+  border-radius: 2px;
 }
 
-.footer__col ul {
-  display: grid;
-  gap: 4px;
-  margin: 12px 0 0;
-  padding: 0;
-  list-style: none;
-  font-size: 14px;
-}
-
-.footer__col a:hover {
+.signup__input::placeholder {
   color: var(--ink-3);
 }
 
-@media (max-width: 760px) {
-  .footer__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+.signup__input:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 0;
+}
 
-  .footer__note {
-    grid-column: 1 / -1;
-  }
+.signup__note {
+  font-size: 14px;
 }
 
 /* The wordmark is sized from its character count so it always spans the

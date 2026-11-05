@@ -1,0 +1,41 @@
+name: Import images
+
+# When public/images/sources.json changes, download the listed images,
+# commit them, then redeploy the site.
+on:
+  push:
+    branches: [main]
+    paths: [public/images/sources.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node scripts/import-images.mjs
+      - name: Commit images
+        run: |
+          git add public/images
+          if git diff --cached --quiet; then
+            echo "No image changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Import images from sources.json"
+          git push
+      # Pushes made with GITHUB_TOKEN don't trigger other workflows, so start
+      # the deploy explicitly.
+      - run: gh workflow run pages.yml --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}

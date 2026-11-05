@@ -1,50 +1,27 @@
 import Link from "next/link";
 
 import { site } from "@/lib/site";
+import { SignUp } from "./SignUp";
 
-const columns = [
-  {
-    title: "Shop",
-    links: [
-      { href: "/shop?category=matcha", label: "Matcha" },
-      { href: "/shop?category=tools", label: "Tools" },
-      { href: "/shop?category=goods", label: "Goods" },
-    ],
-  },
-  {
-    title: "Learn",
-    links: [
-      { href: "/about", label: "About" },
-      { href: "/prepare", label: "Prepare" },
-    ],
-  },
-  {
-    title: "Help",
-    links: [
-      { href: "/help#shipping", label: "Shipping" },
-      { href: "/help#returns", label: "Returns" },
-      { href: "/help#contact", label: "Contact" },
-    ],
-  },
+const links = [
+  { href: "/shop", label: "Shop" },
+  { href: "/about", label: "About" },
+  { href: "/prepare", label: "Prepare" },
+  { href: "/help", label: "Help" },
 ];
 
 export function Footer() {
   return (
     <footer className="footer">
-      <div className="container footer__grid">
-        <p className="footer__note">{site.tagline}</p>
-        {columns.map((col) => (
-          <div key={col.title} className="footer__col">
-            <span className="label muted">{col.title}</span>
-            <ul>
-              {col.links.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div className="container footer__top">
+        <SignUp />
+        <nav className="footer__links" aria-label="Footer">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} className="navlink">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </div>
       <div className="container">
         <p className="footer__wordmark" aria-hidden="true" style={{ "--chars": site.name.length } as React.CSSProperties}>

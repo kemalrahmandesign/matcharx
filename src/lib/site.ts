@@ -1,11 +1,12 @@
-// Brand-level settings. The name is a working title — change it here and it
-// updates the header, footer, page titles and checkout.
+// Brand-level settings. Changing the name here updates the header, footer
+// wordmark, page titles and checkout.
 export const site = {
-  name: "MATCHARX",
+  name: "BAGUM", // wordmark in the header and footer
+  fullName: "Bagum Matcha", // page titles and search results
   tagline: "Matcha, nothing else.",
   description:
     "Single-origin matcha from China, presented with nothing added. White paper, brushed aluminum, and the green of the leaf.",
-  email: "hello@matcharx.com", // TODO: real inbox
+  email: "hello@bagum.com", // TODO: real inbox
   currency: "USD",
   locale: "en-US",
   // Countries Stripe Checkout will ship to.

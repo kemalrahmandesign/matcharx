@@ -24,11 +24,14 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - id: pages
+        uses: actions/configure-pages@v5
       # Pages only serves static files, so the Stripe checkout route is left out.
       - run: rm -rf src/app/api
       - run: npm run build
         env:
           GITHUB_PAGES: "true"
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

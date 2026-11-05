@@ -12,7 +12,7 @@ import { resolveImages } from "@/lib/images";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { default: `${site.name} — ${site.tagline}`, template: `%s — ${site.name}` },
+  title: { default: `${site.fullName} — ${site.tagline}`, template: `%s — ${site.fullName}` },
   description: site.description,
 };
 

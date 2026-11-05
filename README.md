@@ -1,6 +1,6 @@
-# matcharx
+# Bagum Matcha
 
-Storefront for a premium Chinese matcha brand. Next.js 16, no UI framework — one stylesheet in `src/app/globals.css`.
+Storefront for Bagum, a premium Chinese matcha brand. Next.js 16, no UI framework — one stylesheet in `src/app/globals.css`.
 
 The look: white paper, brushed aluminum, mono type for structure and sans for reading. There is no green in the interface; the only colour comes from photographs of the tea.
 
@@ -35,7 +35,7 @@ The cart lives top right, opens as a drawer, and is saved in the browser.
 
 ## Change the name
 
-The brand name is a working title. Edit `name` in `src/lib/site.ts` — the header, footer wordmark (which resizes itself to fit), page titles and checkout all follow.
+Edit `name` (the wordmark) and `fullName` (page titles) in `src/lib/site.ts` — the header, footer wordmark (which resizes itself to fit), page titles and checkout all follow.
 
 ## Add images
 

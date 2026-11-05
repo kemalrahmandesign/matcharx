@@ -52,7 +52,7 @@ export function Footer() {
         </p>
         <div className="footer__base">
           <span>
-            © {new Date().getFullYear()} {site.name}
+            © {new Date().getFullYear()} {site.fullName}
           </span>
           <a href={`mailto:${site.email}`}>{site.email}</a>
         </div>

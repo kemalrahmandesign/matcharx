@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { site } from "@/lib/site";
+
 // Posts the email to a newsletter provider's form endpoint (Buttondown,
 // Mailchimp, Formspree, …) set in NEXT_PUBLIC_SIGNUP_URL. Until one is set the
 // form says sign-ups aren't open, rather than pretending to save the address.
@@ -29,22 +31,23 @@ export function SignUp() {
 
   return (
     <form className="signup" onSubmit={submit}>
-      <label htmlFor="signup-email" className="label">
-        Sign up for new harvests and restocks
+      <label htmlFor="signup-email" className="signup__title">
+        Sign up for more about {site.name}
       </label>
+      <p className="signup__sub">Get updates on new products, restocks and more.</p>
       {state === "done" ? (
         <p className="signup__note">You&rsquo;re on the list.</p>
       ) : (
-        <div className="signup__row">
+        <div className="signup__field">
           <input id="signup-email" name="email" type="email" required autoComplete="email" placeholder="Email address" className="signup__input" />
-          <button type="submit" className="button" disabled={state === "sending"}>
-            {state === "sending" ? "Sending…" : "Sign up"}
+          <button type="submit" className="signup__submit" aria-label="Sign up" disabled={state === "sending"}>
+            →
           </button>
         </div>
       )}
-      {state === "closed" && <p className="signup__note muted small">Sign-ups open soon. Check back shortly.</p>}
+      {state === "closed" && <p className="signup__note muted">Sign-ups open soon. Check back shortly.</p>}
       {state === "error" && (
-        <p className="signup__note small error" role="alert">
+        <p className="signup__note error" role="alert">
           That didn&rsquo;t go through. Check the address and try again.
         </p>
       )}

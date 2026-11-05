@@ -7,7 +7,15 @@ import { categories, products } from "@/lib/products";
 export default function Home() {
   return (
     <>
-      <ImageSlot name="hero" alt="Bagum ceremonial grade matcha" label="Hero image" ratio="hero" sizes="100vw" priority />
+      <section className="hero">
+        <ImageSlot name="hero" alt="Bagum ceremonial grade matcha" label="Hero image" ratio="hero" sizes="100vw" priority />
+        <div className="hero__copy">
+          <h1 className="hero__title">Ceremonial grade matcha.</h1>
+          <Link href="/shop?category=matcha" className="button">
+            Shop matcha
+          </Link>
+        </div>
+      </section>
 
       {categories.map((c) => {
         const items = products.filter((p) => p.category === c.id);

@@ -11,6 +11,14 @@ export function AddToCart({ product }: { product: Product }) {
   const [qty, setQty] = useState(1);
   const [prompt, setPrompt] = useState(false);
 
+  if (product.comingSoon) {
+    return (
+      <button type="button" className="button button--grow" disabled>
+        Coming soon
+      </button>
+    );
+  }
+
   function submit() {
     if (product.sizes && !size) {
       setPrompt(true);
@@ -59,7 +67,7 @@ export function AddToCart({ product }: { product: Product }) {
           </button>
         </div>
         <button type="button" className="button button--grow" onClick={submit}>
-          Add to cart — <span className="tabular">{formatPrice(product.price * qty)}</span>
+          <span className="tabular">Add to cart · {formatPrice(product.price * qty)}</span>
         </button>
       </div>
     </div>

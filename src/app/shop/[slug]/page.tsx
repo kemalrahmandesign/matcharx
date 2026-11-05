@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { AddToCart } from "@/components/AddToCart";
 import { ImageSlot } from "@/components/ImageSlot";
 import { ProductCard } from "@/components/ProductCard";
+import { averageRating, Reviews, Stars } from "@/components/Reviews";
 import { categories, formatPrice, getProduct, productTitle, products, rangeOf } from "@/lib/products";
 import { ratio, site } from "@/lib/site";
 
@@ -46,7 +47,8 @@ export default async function ProductPage({ params }: Params) {
           <ImageSlot
             name={product.image}
             alt={title}
-            label={`No. ${product.index} — ${title}`}
+            label={product.comingSoon ? "Coming soon" : `No. ${product.index} — ${title}`}
+            hidePath={product.comingSoon}
             sizes="(min-width: 900px) 58vw, 100vw"
             priority
           />
@@ -56,7 +58,13 @@ export default async function ProductPage({ params }: Params) {
           <div className="pdp__heading">
             <span className="label muted tabular">No. {product.index}</span>
             <h1 className="pdp__title">{title}</h1>
-            <span className="pdp__price tabular">{formatPrice(product.price)}</span>
+            <span className="pdp__price tabular">{product.comingSoon ? "Coming soon" : formatPrice(product.price)}</span>
+            {!!product.reviews?.length && (
+              <a href="#reviews" className="label">
+                <Stars rating={averageRating(product.reviews)} /> {product.reviews.length}{" "}
+                {product.reviews.length === 1 ? "review" : "reviews"}
+              </a>
+            )}
           </div>
 
           <p className="pdp__desc">{product.description}</p>
@@ -118,6 +126,8 @@ export default async function ProductPage({ params }: Params) {
           </div>
         </div>
       </div>
+
+      {!product.comingSoon && <Reviews reviews={product.reviews} />}
 
       <section className="section">
         <div className="grid section__head">

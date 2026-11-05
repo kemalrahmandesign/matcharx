@@ -35,7 +35,7 @@ The cart lives top right, opens as a drawer, and is saved in the browser.
 
 ## Change the name
 
-Edit `name` (the wordmark) and `fullName` (page titles) in `src/lib/site.ts` — the header, footer wordmark (which resizes itself to fit), page titles and checkout all follow.
+Edit `name` (the wordmark) and `fullName` (page titles) in `src/lib/site.ts` — the header, footer, page titles and checkout all follow.
 
 ## Add images
 
@@ -55,6 +55,14 @@ Drop files into `public/images` with these names. Any of `.jpg .jpeg .png .webp 
 | `products/tote-bag` | Tote Bag |
 
 Product images are shown at 4:5. Shoot on white or pale grey so they sit on the paper.
+
+## Images from Higgsfield
+
+List image URLs in `public/images/sources.json` (name → URL) and push to `main`. The Import images workflow downloads them, resizes them to WebP, commits them and redeploys. Matcha cards also show a `-hover` image on hover when one exists.
+
+## Reviews
+
+Add real customer reviews to a product's `reviews` list in `src/lib/products.ts`. Until a product has some, its page shows "No reviews yet".
 
 ## Products and prices
 

@@ -10,7 +10,7 @@ const EXTENSIONS = [".avif", ".webp", ".jpg", ".jpeg", ".png"];
 // so a missing image renders a placeholder instead of a broken <img>.
 export function resolveImages(): Record<string, string> {
   const dir = path.join(process.cwd(), "public", "images");
-  const names = [...pageImages, ...products.map((p) => p.image)];
+  const names = [...pageImages, ...products.flatMap((p) => (p.hoverImage ? [p.image, p.hoverImage] : [p.image]))];
   const found: Record<string, string> = {};
   for (const name of names) {
     for (const ext of EXTENSIONS) {

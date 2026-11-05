@@ -7,6 +7,8 @@ export const site = {
   description:
     "Ceremonial grade matcha in a silver tin. Nothing added.",
   email: "hello@bagum.com", // TODO: real inbox
+  // Footer icons show only for accounts that have a URL.
+  social: { instagram: "", tiktok: "" }, // TODO: add profile URLs
   currency: "USD",
   locale: "en-US",
   // Countries Stripe Checkout will ship to.

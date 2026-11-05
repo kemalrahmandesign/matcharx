@@ -1,5 +1,9 @@
 export type Category = "matcha" | "accessories" | "merch";
 
+// Real customer reviews only. Add them here (or connect a reviews service)
+// as they come in; the product page shows an empty state until then.
+export type Review = { name: string; rating: 1 | 2 | 3 | 4 | 5; date: string; title?: string; body: string };
+
 export type Product = {
   slug: string;
   index: string; // catalogue number shown on cards
@@ -10,6 +14,9 @@ export type Product = {
   description: string;
   // Base name under /public/images — the extension is detected automatically.
   image: string;
+  hoverImage?: string; // shown when a card is hovered, if the file exists
+  comingSoon?: boolean; // listed but not for sale yet
+  reviews?: Review[];
   specs: { label: string; value: string }[];
   sizes?: string[]; // apparel sizes, chosen at add-to-cart
   // Products in the same range are shown as a size switch on each other's pages.
@@ -34,6 +41,7 @@ export const products: Product[] = [
     description:
       "Ceremonial grade matcha in the everyday size. Milled to a fine powder that whisks to a dense, even foam.",
     image: "products/matcha-small",
+    hoverImage: "products/matcha-small-hover",
     range: { group: "matcha", label: "Small · 30 g" },
     specs: [
       { label: "Weight", value: "30 g" },
@@ -52,6 +60,7 @@ export const products: Product[] = [
     description:
       "The same ceremonial grade matcha in a larger tin, for a daily bowl. Keep it sealed, cool and dark.",
     image: "products/matcha-large",
+    hoverImage: "products/matcha-large-hover",
     range: { group: "matcha", label: "Large · 100 g" },
     specs: [
       { label: "Weight", value: "100 g" },
@@ -118,6 +127,7 @@ export const products: Product[] = [
     description:
       "A plain white shirt in heavyweight cotton with a small wordmark at the chest. Boxy fit, dropped shoulder.",
     image: "products/shirt",
+    comingSoon: true,
     sizes: ["S", "M", "L", "XL"],
     specs: [
       { label: "Material", value: "100% cotton" },
@@ -135,6 +145,7 @@ export const products: Product[] = [
     description:
       "A heavy canvas tote, big enough for a tin, a whisk and everything else. Printed with the wordmark on one side.",
     image: "products/tote-bag",
+    comingSoon: true,
     specs: [
       { label: "Material", value: "Cotton canvas" },
       { label: "Size", value: "38 × 42 cm" },

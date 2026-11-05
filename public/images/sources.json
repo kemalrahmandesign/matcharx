@@ -1,5 +1,10 @@
 {
-  "hero": "https://d8j0ntlcm91z4.cloudfront.net/user_3FE0Xjh16Sot9aoCPbOwO7vYemS/hf_20261105_034031_d36777e3-c32b-478d-939f-7cf166d9869f.png",
-  "products/matcha-small": "https://d8j0ntlcm91z4.cloudfront.net/user_3FE0Xjh16Sot9aoCPbOwO7vYemS/hf_20261105_033925_a4f6579a-7cea-493d-96eb-05ce2c1a0df0.png",
-  "products/matcha-large": "https://d8j0ntlcm91z4.cloudfront.net/user_3FE0Xjh16Sot9aoCPbOwO7vYemS/hf_20261105_034134_a67631d2-2c03-40ad-a328-aaf39e0890d1.png"
+  "hero": "https://d8j0ntlcm91z4.cloudfront.net/user_3FE0Xjh16Sot9aoCPbOwO7vYemS/hf_20261105_042435_dbba0953-1d5f-4e4a-b02c-1e3bed5587bc.png",
+  "products/matcha-small": "https://d8j0ntlcm91z4.cloudfront.net/user_3FE0Xjh16Sot9aoCPbOwO7vYemS/hf_20261105_042214_306d5f10-c552-4d66-bdcf-079a53e39176.png",
+  "products/matcha-large": "https://d8j0ntlcm91z4.cloudfront.net/user_3FE0Xjh16Sot9aoCPbOwO7vYemS/hf_20261105_042318_b3d3ac03-25e3-4138-95d6-0ea1b2e8bd66.png",
+  "products/matcha-small-hover": "https://d8j0ntlcm91z4.cloudfront.net/user_3FE0Xjh16Sot9aoCPbOwO7vYemS/hf_20261105_042514_0aed3ac1-f638-4f05-82a8-98b4adbf07e8.png",
+  "products/matcha-large-hover": "https://d8j0ntlcm91z4.cloudfront.net/user_3FE0Xjh16Sot9aoCPbOwO7vYemS/hf_20261105_042640_edca2383-3cd1-41e2-b184-1c1958dd2fbd.png",
+  "products/whisk": "https://d8j0ntlcm91z4.cloudfront.net/user_3FE0Xjh16Sot9aoCPbOwO7vYemS/hf_20261105_042742_e925f90c-794c-40d7-92d0-a66356e6329a.png",
+  "products/whisk-holder": "https://d8j0ntlcm91z4.cloudfront.net/user_3FE0Xjh16Sot9aoCPbOwO7vYemS/hf_20261105_042832_bdb277e5-1b50-4056-99eb-4dc8bc4ab698.png",
+  "products/bamboo-scooper": "https://d8j0ntlcm91z4.cloudfront.net/user_3FE0Xjh16Sot9aoCPbOwO7vYemS/hf_20261105_042911_327d232b-ed55-44fa-8a30-568d6dc83d68.png"
 }

@@ -8,6 +8,18 @@ Things to research and decide before Bagum starts selling. Tick them off as they
 - [ ] Check the domain, Instagram and TikTok handles are free
 - [ ] Check for existing trademarks on the name
 
+## Business setup (US)
+
+- [ ] Form an LLC in your state and get an EIN from the IRS (free)
+- [ ] Open a business bank account
+- [ ] Register for a sales tax permit in your state; Stripe Tax can calculate it at checkout
+- [ ] Product liability insurance
+- [ ] If repacking matcha into tins in the US: check state food licensing rules (home repacking is often not allowed) and whether FDA facility registration applies; simplest is having the supplier fill and seal the tins
+- [ ] Import costs: a customs broker, a customs bond for larger shipments, and duties/tariffs on Chinese goods (the $800 duty-free exemption no longer applies); get current rates from the broker
+- [ ] California Prop 65 lead warnings: only required once the business has 10 or more employees
+
+The list for Dad in China lives in the Claude doc "Bagum: What to Get in China".
+
 ## Ask the supplier in China
 
 - [ ] Their FDA food facility registration number (needed to import food into the US)
